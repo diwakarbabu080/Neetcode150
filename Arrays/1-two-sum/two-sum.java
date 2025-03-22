@@ -16,6 +16,15 @@ class Solution {
 
         */
 
+        /*
+
+        Apprach 3 
+        1. sort : which will take NlogN
+        2. for every number i try seaching in entire array a val equal to target-i : N*logN
+        T.c : O(NlogN) + O(N)*O(logN) 
+
+            */
+
         HashMap<Integer, Integer> map = new HashMap<>();
         
         int a = 0;
