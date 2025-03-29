@@ -12,9 +12,10 @@ class Solution {
             
         }
         
-        for(int i = nums.length-2;i>=0; i-- ){
-            suffix = suffix*nums[i+1];
+        for(int i = nums.length-1;i>=0; i-- ){
             ans[i] = ans[i]*suffix;
+            suffix = suffix*nums[i];
+            
         }
         return ans;
         
