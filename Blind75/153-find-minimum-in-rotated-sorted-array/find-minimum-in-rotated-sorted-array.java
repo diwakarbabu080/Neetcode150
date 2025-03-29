@@ -1,17 +1,19 @@
 class Solution {
     public int findMin(int[] arr) {
-        int s = 0,n=arr.length, e = arr.length - 1;
+        int s = 0, e = arr.length - 1;
 
         while (s < e) {
             int mid = s + (e - s) / 2;
 
-            if (arr[mid] < arr[e]) {
-                e = mid; // Move right, since peak is on right side
+            if (arr[mid] > arr[e]) {
+                s = mid + 1;  // Minimum is in the right half
+            } else if (arr[mid] < arr[e]) {
+                e = mid;  // Minimum is in the left half (including mid)
             } else {
-                s = mid+1; // Move left, since we may have found peak
+                e--;  // Reduce e by 1 to remove duplicate effect
             }
         }
 
-        return arr[s];  
+        return arr[s];  // or arr[e], since s == e
     }
 }
