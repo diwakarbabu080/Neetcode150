@@ -2,7 +2,7 @@ class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         int max = 0;
         for (int i : piles) {
-            max = Math.max(max, i);
+            max = Math.max(max,i);
         }
 
         int s = 1, e = max, ans = max;
@@ -20,12 +20,16 @@ class Solution {
         return ans;
     }
 
-    public boolean ifPossibleToEat(int[] piles, int mid, int h) {
-        long count = 0; // Use long to prevent overflow
-
-        for (int i : piles) {
-            count += (i + mid - 1) / mid; // Same as Math.ceil(i / mid)
+    public boolean ifPossibleToEat(int[] arr, int step, int h) {
+        long ans = 0;
+        for(int i = 0; i<arr.length; i++){
+            if(arr[i]%step == 0){
+                ans += arr[i]/step;
+            }else{
+                ans+= (arr[i]/step)+1;
+            }
         }
-        return count <= h;
+   
+        return ans<=h;
     }
 }
