@@ -11,7 +11,10 @@ class Solution {
         int ans = 0;
 
         for (int num : nums) {
-            if (!set.contains(num)) continue;
+            if (!set.contains(num)) {
+                  set.remove(num);
+                continue;
+            }
             if (!set.contains(num - 1)) {
                 int currentNum = num;
                 int count = 1;
