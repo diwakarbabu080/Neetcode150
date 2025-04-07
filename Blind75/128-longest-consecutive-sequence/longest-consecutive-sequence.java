@@ -12,7 +12,7 @@ class Solution {
 
         for (int num : nums) {
             if (!set.contains(num)) {
-                  set.remove(num);
+              
                 continue;
             }
             if (!set.contains(num - 1)) {
@@ -20,7 +20,7 @@ class Solution {
                 int count = 1;
                 set.remove(num);
                 while (set.contains(currentNum + 1)) {
-                    // set.remove(currentNum);
+                  
                     currentNum++;
                     set.remove(currentNum);
                     count++;
