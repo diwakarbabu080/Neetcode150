@@ -29,7 +29,7 @@ class Solution {
             // making into string
             StringBuilder temp = new StringBuilder();
             for (int count : countArr) {
-                temp.append(count).append('#');
+                temp.append(count+"#");
             }
             String key = temp.toString();
 
