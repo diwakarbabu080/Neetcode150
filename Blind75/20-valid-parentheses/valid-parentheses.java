@@ -21,27 +21,9 @@ class Solution {
         return stack.isEmpty();   
     }
     public boolean checkCase(char a, char b){
-        if(a == '('){
-            if(b == ')'){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        if(a == '['){
-            if(b == ']'){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        if(a == '{'){
-            if(b == '}'){
-                return true;
-            }else{
-                return false;
-            }
-        }
-        return false;
+
+        return ((a == '(' && b == ')')||
+                (a== '[' && b == ']')||
+                (a == '{' && b == '}'));
     }
 }
