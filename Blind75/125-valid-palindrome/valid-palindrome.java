@@ -3,14 +3,16 @@ class Solution {
 
         String str = "";
 
-        for(char ch : s.toCharArray()){
-            if (('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z')||('0'<= ch && ch<= '9')) {
-                if('A' <= ch && ch <= 'Z'){
-                    ch = (char)(ch+32);
-                }
-                str+=ch;
+        StringBuilder ans = new StringBuilder();
+        for(int i = 0; i<s.length(); i++){
+            if(s.charAt(i) >='A' && s.charAt(i) <='Z'){
+                ans.append((char)(s.charAt(i)+32));
+            }
+            else if(s.charAt(i) >='a' && s.charAt(i) <='z' || (s.charAt(i) >='0' && s.charAt(i) <='9')){
+                ans.append(s.charAt(i));
             }
         }
+        str = ans.toString();
         // System.out.println(s+" "+str);
         // boolean ans = true;
         int start = 0; 
