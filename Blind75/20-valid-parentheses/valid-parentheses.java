@@ -17,11 +17,7 @@ class Solution {
                 }
             }
         }
-        if(stack.size()!= 0)return false;
-        return true;
-
-
-        
+        return stack.isEmpty();   
     }
     public boolean checkCase(char a, char b){
         if(a == '('){
