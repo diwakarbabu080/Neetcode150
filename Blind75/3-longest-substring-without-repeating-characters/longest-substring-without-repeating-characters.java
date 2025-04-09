@@ -6,18 +6,17 @@ class Solution {
         int left = 0;
         // int e = 0;
         int max = 0;
-        HashSet<Character>set = new HashSet<>();
+        HashMap<Character, Integer>map = new HashMap<>();
         for(int i = 0; i<s.length(); i++){
 
-             if(!set.contains(s.charAt(i))){
-                set.add(s.charAt(i));
+            if(!map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i), i);
             }else{
-                while(set.contains(s.charAt(i))){
-                    set.remove(s.charAt(left));
-                    left++;
+                left = Math.max(left, map.get(s.charAt(i))+1);
+                map.put(s.charAt(i), i);
             }
-            set.add(s.charAt(i));
-            }
+            // set.add(s.charAt(i));
+            
 
             
             
