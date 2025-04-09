@@ -9,13 +9,17 @@ class Solution {
         HashSet<Character>set = new HashSet<>();
         for(int i = 0; i<s.length(); i++){
 
-            while(set.contains(s.charAt(i))){
+             if(!set.contains(s.charAt(i))){
+                set.add(s.charAt(i));
+            }else{
+                while(set.contains(s.charAt(i))){
                     set.remove(s.charAt(left));
                     left++;
             }
-            if(!set.contains(s.charAt(i))){
-                set.add(s.charAt(i));
+            set.add(s.charAt(i));
             }
+
+            
             
             max = Math.max(max, i-left+1);
         }
