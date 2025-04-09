@@ -1,52 +1,44 @@
 class Solution {
     public int[] maxSlidingWindow(int[] arr, int k) {
         int n = arr.length;
-        int ans[] = new int[n-k+1];
-		int left = 0;
-		int right = 0;
-		
+        int ans[] = new int[n - k + 1];
+        int left = 0;
+        int right = 0;
 
-		PriorityQueue<Integer>q = new PriorityQueue<>((a,b)-> {
-            
-            int diff = arr[b]-arr[a];
-            if(arr[b] == arr[a]){
-                return a-b;
+        Deque<Integer> dq = new ArrayDeque<>();
+
+        // fill first window
+        while (right < k) {
+            while (!dq.isEmpty() && arr[dq.peekLast()] < arr[right]) {
+                dq.pollLast();
             }
-            return arr[b]-arr[a];
-            
-            });
+            dq.offerLast(right);
+            right++;
+        }
 
+        ans[0] = arr[dq.peekFirst()];
+        int counter = 1;
 
-
-		while(right<k){
-			// if(arr[right]>0){
-				q.offer(right);
-
-			// }
-			right++;
-		}
-
-		ans[0] = arr[q.peek()];
-		int counter = 1;
-		// counter++;
-
-		while(right<n){
-			while (!q.isEmpty() && q.peek() < left + 1) {
-                q.poll();
+        // sliding the window
+        while (right < n) {
+            // remove elements out of window
+            if (!dq.isEmpty() && dq.peekFirst() == left) {
+                dq.pollFirst();
             }
-			left++;
 
-			// if(arr[right]>0){
-				q.offer(right);
+            // remove smaller elements from the back
+            while (!dq.isEmpty() && arr[dq.peekLast()] < arr[right]) {
+                dq.pollLast();
+            }
 
-			// }
-			right++;
+            dq.offerLast(right);
 
+            left++;
+            right++;
 
-			ans[counter++] = arr[q.peek()];
+            ans[counter++] = arr[dq.peekFirst()];
+        }
 
-
-		}
-		return ans;
+        return ans;
     }
 }
