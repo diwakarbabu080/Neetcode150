@@ -4,28 +4,48 @@ class Solution {
         int m = matrix.length;
         int n = matrix[0].length;
 
-        HashMap<Integer, List<Integer>> map = new HashMap<>();
+         boolean rowZero = matrix[0][0] == 0? true: false;
+         boolean colZero = matrix[0][0] == 0? true: false;
+
+        // HashMap<Integer, List<Integer>> map = new HashMap<>();
         for(int i = 0; i<m; i++){
             for(int j = 0; j<n; j++){
                 if(matrix[i][j] == 0){
                     
-                    if(!map.containsKey(i)){
-                        map.put(i, new ArrayList<>());
+                    if(j == 0){
+                        colZero = true;
                     }
-                    map.get(i).add(j);
-        
-        
-              
+                    if(i == 0){
+                        rowZero = true;
+                    }
+                    matrix[0][j] = 0;
+                    matrix[i][0] = 0;
+
                 }
+                // break;
             }   
         
         }   
-
-        for(int i : map.keySet()){
-            for(int j : map.get(i)){
-                makeColZeros(j, matrix,m,n);
+        
+       
+        for(int col = 1; col<n; col++){
+            if(matrix[0][col] == 0){
+                // colZero = true;
+                makeColZeros(col, matrix, m, n);
             }
-            makeRowZeros(i, matrix,m,n);
+        }
+        for(int row = 1; row<m; row++){
+            if(matrix[row][0] == 0){
+                // rowZero = true;
+                makeRowZeros(row, matrix, m, n);
+            }
+        }
+
+        if(rowZero){
+            makeRowZeros(0, matrix, m, n);
+        }
+        if(colZero){
+            makeColZeros(0, matrix, m, n);
         }
 
 
