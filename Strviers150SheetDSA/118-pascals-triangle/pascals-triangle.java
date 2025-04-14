@@ -15,9 +15,7 @@ class Solution {
                     temp.add(left+right);
                 }
             }
-            if(temp.size() != 0){
-                ans.add(temp);
-            }
+            ans.add(temp);
             
         }
 
