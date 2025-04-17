@@ -12,7 +12,7 @@ class Solution {
     public ListNode reverseList(ListNode head) {
         
 
-        //  Iterative 
+        /*  Iterative 
         ListNode curr = head;
         ListNode prev = null;
 
@@ -24,14 +24,26 @@ class Solution {
         }
         return prev;
 
-        // */
-
-
-        /*
-            Recursive
-
-
-
         */
+
+
+        // /*
+            // Recursive
+           if(head == null || head.next == null) {
+            return head;
+           }
+
+            ListNode curr = head;
+            ListNode temp2 = curr.next;
+           ListNode temp = reverseList(curr.next);
+           temp2.next = curr;
+        //    temp.next = curr.next;
+        //    temp2.next = curr;
+
+            curr.next = null;
+           return temp;
+
+
+        // */
     }
 }
