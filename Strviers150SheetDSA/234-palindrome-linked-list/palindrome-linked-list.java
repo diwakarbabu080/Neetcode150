@@ -21,11 +21,7 @@ class Solution {
             second = second.next;
         }
 
-        if(second == null){
-            return true;
-        }else{
-            return false;
-        }
+        return second == null ? true: false;
 
     }
      public ListNode reverseList(ListNode head) {
