@@ -18,6 +18,7 @@ class Solution {
         for(int i:nums2){
             if(set1.contains(i)){
                 ans.add(i);
+                set1.remove(i);
             }
         }
         return ans.stream().mapToInt(Integer::intValue).toArray();
