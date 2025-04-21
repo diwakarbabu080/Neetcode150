@@ -22,10 +22,7 @@ class Solution {
                 ans.add(i);
             }
         }
-        Integer[] res =  ans.toArray(new Integer[0]);
-        // int res[] = new/
-        int[] res2 = Arrays.stream(res).mapToInt(Integer::intValue).toArray();
-        return res2;
+        return ans.stream().mapToInt(Integer::intValue).toArray();
 
     }
 }
