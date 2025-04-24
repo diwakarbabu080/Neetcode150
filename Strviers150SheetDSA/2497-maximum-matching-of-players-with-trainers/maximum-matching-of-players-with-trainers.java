@@ -1,21 +1,20 @@
 
 class Solution {
-    public int matchPlayersAndTrainers(int[] greed, int[] cookies) {
+    public int matchPlayersAndTrainers(int[] players, int[] trainers) {
 
-        Arrays.sort(greed);
-        Arrays.sort(cookies);
+        Arrays.sort(players);
+        Arrays.sort(trainers);
 
         int first = 0;
         int second = 0;
-        while(first<greed.length && second<cookies.length){
+        while(first<players.length && second<trainers.length){
 
-            if(greed[first] <= cookies[second]){
+            if(players[first] <= trainers[second]){
                 first++;
-                second++;
+               
             }
-            while(second<cookies.length && first<greed.length&& cookies[second]< greed[first]){
-                second++;
-            }
+            second++;
+           
             
         }
         return first;
