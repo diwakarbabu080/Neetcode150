@@ -17,19 +17,19 @@ class Solution {
                 left[i] = 1;
             }
         }
+        int sum =  Math.max(1, left[n-1]);
+        int curr = Math.max(1, left[n-1]);
          for(int i = n-2;i>=0; i--){
             if(ratings[i]>ratings[i+1]){
-                right[i] = right[i+1]+1;
+                curr = curr+1;
+
             }else{
-                right[i] = 1;
+                // right[i] = 1;
+                curr = 1;
             }
+            sum += Math.max(left[i],curr );
         }
-        int sum = 0;
-        for(int i =0; i<n; i++){
-            
-            ans[i] = Math.max(left[i], right[i]);
-            sum+=ans[i];
-        }
+        
         return sum;
         
     }
