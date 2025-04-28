@@ -20,6 +20,6 @@ class Solution {
 
             }
         }
-        return Math.abs(pos+neg);
+        return pos+neg;
     }
 }
